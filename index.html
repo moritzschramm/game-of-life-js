@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <title>Game Of Life</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+  </head>
+  <body>
+
+    <canvas id="canvas" width="2000" height="1000"></canvas>
+    <div class="control-panel">
+      <button type="button" class="btn" onclick="startGame()">Start</button>
+      <button type="button" class="btn" onclick="stopGame()">Stop</button>
+      <button type="button" class="btn" onclick="clearAll()">Clear</button>
+      <span id="console">Init</span>
+
+      <span class="btn" style="float: right;" id="how_to">
+        How to play
+        <div class="modal">
+          <ul>
+            <li>Left Click: set cell to black (living cell)</li>
+            <li>Right Click: set cell to white (dead cell)</li>
+            <li>Once the game is running, you need to stop it, to edit the grid</li>
+            <li>Use your mouse wheel to zoom (grid is fixed to center)</li>
+          </ul>
+        </div>
+      </span>
+      <span class="btn" style="float: right;" id="rules">
+        Rules
+        <div class="modal">
+          <ul>
+            <li>Living cells with 2 or 3 neighbours survives, if the amount of neighbours is smaller than 2 or greater than 3 the cell will die (will become white)</li>
+            <li>Dead cells with exactly 3 neighbours spawns (becomes black)</li>
+            <li>One cell has 8 neighbours (a square around the cell)</li>
+          </ul>
+        </div>
+      </span>
+      <a href="#" class="btn" style="float: right;">Source code (on GitHub)</a>
+
+
+    </div>
+
+    <script src="app.js"></script>
+    <script src="game-of-life.js"></script>
+
+  </body>
+</html>
