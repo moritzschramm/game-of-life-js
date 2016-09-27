@@ -259,11 +259,18 @@ canvas.onwheel = function(e) {
 
   e.preventDefault();
 
-  if((e.deltaY > 0 && size + e.deltaY < 300) || (e.deltaY < 0 && size + e.deltaY > 5)) {
+  console.log(e.deltaY);
 
-    size = size + e.deltaY;
-    clearGrid();
-    drawGrid();
-    redrawState();
+  if(e.deltaY < 0 && size >= 20) {
+
+    size -= 10;
+
+  } else if(e.deltaY > 0 && size <= 300) {
+
+    size += 10;
   }
+
+  clearGrid();
+  drawGrid();
+  redrawState();
 }
