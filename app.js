@@ -134,18 +134,24 @@ function makeBlack(rawX, rawY) {
   var x = getGridPosX(rawX);
   var y = getGridPosY(rawY);
 
+  makeBlackRaw(x, y);
+}
+function makeBlackRaw(x, y) {
+
   setGridAt(x, y, true);
 
   ctx.fillStyle = "#111";
   ctx.fillRect(translateToPixelX(x), translateToPixelY(y), size, size);
   renewLines();
-
-  //logGrid();
 }
 function makeWhite(rawX, rawY) {
 
   var x = getGridPosX(rawX);
   var y = getGridPosY(rawY);
+
+  makeWhiteRaw(x, y);
+}
+function makeWhiteRaw(x, y) {
 
   setGridAt(x, y, false);
 
@@ -259,8 +265,6 @@ canvas.onwheel = function(e) {
 
   e.preventDefault();
 
-  console.log(e.deltaY);
-
   if(e.deltaY < 0 && size >= 20) {
 
     size -= 10;
@@ -274,3 +278,21 @@ canvas.onwheel = function(e) {
   drawGrid();
   redrawState();
 }
+
+window.onresize = function(event) {
+
+  clearGrid();
+
+  canvas.width = canvas.scrollWidth;
+  canvas.height = canvas.scrollHeight;
+  width = canvas.width;
+  height = canvas.height;
+
+  drawGrid();
+
+  ctx.lineWidth = 1;
+  ctx.strokeStyle = "#999";
+
+  redrawState();
+  renewLines();
+};

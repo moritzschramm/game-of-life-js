@@ -16,6 +16,24 @@
       <button type="button" class="btn" onclick="clearAll()">Clear</button>
       <span id="console">Init</span>
 
+      <div class="dropdown" id="creation-dropdown">
+        <button type="button" class="btn">Create...
+          <span class="dropdown-caret"></span></button>
+          <div id="creation-dropdown-modal" class="dropdown-modal dropdown-hidden">
+            <ul>
+              <li onclick="spawnGlider()">Spawn Glider</li>
+              <li onclick="spawnPulsar()">Spawn Pulsar</li>
+              <li onclick="spawnRPentomino()">Spawn r-Pentomino</li>
+              <li onclick="spawnHeavyWeigthSpaceship()">Spawn Heavy Weight Spaceship</li>
+              <li onclick="spawnGliderGun()">Spawn Gosper's Glider Gun</li>
+            </ul>
+          </div>
+      </div>
+
+
+
+      <a id="github_link" href="https://github.com/moritzschramm/game-of-live-js" class="btn" style="float: right;" target="_blank">Source code (on GitHub)</a>
+
       <span class="btn" style="float: right;" id="how_to">
         How to play
         <div class="modal">
@@ -37,13 +55,20 @@
           </ul>
         </div>
       </span>
-      <a href="https://github.com/moritzschramm/game-of-live-js" class="btn" style="float: right;">Source code (on GitHub)</a>
 
 
     </div>
 
     <script src="app.js"></script>
     <script src="game-of-life.js"></script>
+
+    <!-- HELPER SCRIPTS, just for some extra features -->
+    <script
+			  src="https://code.jquery.com/jquery-3.1.1.min.js"
+			  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+			  crossorigin="anonymous"></script>
+    <script src="dropdown.js"></script>
+    <script src="spawnObjects.js"></script>
 
   </body>
 </html>
